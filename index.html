@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIMLO SOLUTIONS OF MEXICO</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pantone-288c: #002D72; 
+            --black-100: #000000;    
+            --black-70: #4D4D4D;     
+            --white: #FFFFFF;
+            --light-bg: #F8F9FA;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Gotham', 'Montserrat', sans-serif;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Tactic Round Exd', 'Arial Black', sans-serif;
+            font-weight: bold;
+        }
+
+        body {
+            color: var(--black-70);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
+
+        /* Navegación */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: block;
+            text-decoration: none;
+        }
+        
+        .logo img {
+            height: 50px; /* Ajusta la altura según necesites */
+            width: auto;
+            display: block;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--black-100);
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--pantone-288c);
+        }
+
+        .btn-login {
+            background: var(--pantone-288c);
+            color: var(--white) !important;
+            padding: 0.6rem 1.5rem;
+            border-radius: 4px;
+        }
+
+        .btn-login:hover {
+            background: var(--black-100);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(0, 45, 114, 0.9) 0%, rgba(0, 0, 0, 0.7) 100%), url('https://images.unsplash.com/photo-1581094288338-2314dddb7ece?auto=format&fit=crop&w=1920&q=80') center/cover;
+            color: var(--white);
+            padding: 0 5%;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            margin-top: 60px;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeUp 1s forwards 0.2s;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            color: var(--white);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 400;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background: var(--white);
+            color: var(--pantone-288c);
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            transition: transform 0.3s, background 0.3s, color 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: var(--black-100);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        /* Secciones */
+        section {
+            padding: 5rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--pantone-288c);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--black-100);
+            margin: 15px auto 0;
+        }
+
+        .text-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-bg {
+            background: var(--light-bg);
+        }
+
+        /* Tarjetas de Servicios */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 2.5rem 1.5rem;
+            border: 1px solid #EAECEF;
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+            text-align: center;
+            border-top: 4px solid var(--pantone-288c);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+            border-color: var(--pantone-288c);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--black-100);
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card h3 {
+            color: var(--pantone-288c);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        /* Bloque de Política de Calidad */
+        .policy-quote {
+            font-style: italic;
+            border-left: 4px solid var(--pantone-288c);
+            padding-left: 1.5rem;
+            margin-bottom: 2rem;
+            color: var(--black-70);
+        }
+
+        .signature-block {
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px solid #EAECEF;
+        }
+
+        .signature-name {
+            color: var(--pantone-288c);
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: block;
+        }
+
+        .signature-title {
+            color: var(--black-70);
+            font-size: 0.9rem;
+        }
+
+        /* ISO Badge */
+        .iso-badge {
+            background: var(--white);
+            padding: 3rem 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            text-align: center;
+            border: 2px solid var(--pantone-288c);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--black-100);
+            color: var(--white);
+            padding: 4rem 5% 2rem;
+            text-align: center;
+        }
+
+        .footer-logo img {
+            height: 60px;
+            margin-bottom: 2rem;
+            background-color: rgba(255,255,255,0.9); /* Fondo claro para que resalte el JPG original */
+            padding: 10px 15px;
+            border-radius: 8px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            opacity: 1;
+            color: var(--pantone-288c);
+        }
+
+        .footer-bottom {
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.8rem;
+            color: var(--black-70);
+        }
+
+        /* Animaciones */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes fadeUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 2.5rem; }
+            .text-grid { grid-template-columns: 1fr; gap: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
+            <!-- Logo actualizado aquí -->
+            <a href="#" class="logo">
+                <img src="logo_dimlo.jpg" alt="DIMLO SOLUTIONS OF MEXICO">
+            </a>
+            <ul class="nav-links">
+                <li><a href="#quienes-somos">¿Quiénes somos?</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#calidad">Política de calidad</a></li>
+                <li><a href="#compromiso">Compromiso</a></li>
+                <li><a href="#" class="btn-login">Entrar</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="hero">
+        <div class="hero-content">
+            <h1>Viabilidad y Eficiencia para tus Proyectos Energéticos</h1>
+            <p>Dimlo se encarga de toda la tramitología que conlleve a la gesitón y negociaciones necesarias para que se libere el paso en inmuebles privados.</p>
+            <a href="#servicios" class="btn-primary">Saber más...</a>
+        </div>
+    </div>
+
+    <div class="about-bg" id="quienes-somos">
+        <section class="text-grid reveal">
+            <div>
+                <h2 class="section-title" style="text-align: left; margin-bottom: 1.5rem;">Experiencia Local, Calidad de Clase Mundial</h2>
+                <p>Somos una empresa 100% Tabasqueña con una trayectoria de 15 años de servicio, donde se ha crecido de manera formidable, gracias a ello es posible brindar los servicos que se tiene con la calidad que nos respalda.</p>
+            </div>
+            <div style="background: url('https://images.unsplash.com/photo-1504307651254-35680f356f12?auto=format&fit=crop&w=600&q=80') center/cover; height: 350px;"></div>
+        </section>
+    </div>
+
+    <section id="servicios">
+        <h2 class="section-title reveal">Soluciones Integrales</h2>
+        <div class="services-grid">
+            <div class="service-card reveal">
+                <div class="service-icon">📄</div>
+                <h3>Gestoría</h3>
+                <p>Nos hacemos cargo de toda la tramitología que conlleve para la liberación de paso en inmuebles privados.</p>
+            </div>
+            <div class="service-card reveal">
+                <div class="service-icon">🏗️</div>
+                <h3>Descarga</h3>
+                <p>Este servicio se encarga de estibar y realizar las descargas necesarias de los sacos, tambores, lonas y totens.</p>
+            </div>
+            <div class="service-card reveal">
+                <div class="service-icon">🧹</div>
+                <h3>Limpieza</h3>
+                <p>Nos encargamos de la limpieza de las instalaciones así como la geomembrana.</p>
+            </div>
+            <div class="service-card reveal">
+                <div class="service-icon">🛠️</div>
+                <h3>Instalación de Geomembrana</h3>
+                <p>Servicios especializados para el acondicionamiento y mantenimiento de diversas líneas de trabajo.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="about-bg" id="calidad">
+        <section class="text-grid reveal">
+            <div>
+                <h2 class="section-title" style="text-align: left; margin-bottom: 1.5rem;" id="compromiso">POLÍTICA DE CALIDAD</h2>
+                <div class="policy-quote">
+                    <p>"Somos una empresa enfocada en desarrollar proyectos rentables y eficaces, brindando servicios especializados de gestoría al sector energético para el acondicionamiento y mantenimiento de diversas líneas de trabajo, así como para facilitar la viabilidad de los proyectos de nuestros clientes.</p>
+                    <br>
+                    <p>Lo anterior lo hacemos a través de un equipo capacitado en la aplicación normativa de medidas mediante las cuáles asumimos el compromiso con la calidad y con la optimización de los procesos internos de la empresa a fin de coordinar los recursos de manera efectiva y promover en forma consistente la mejora continua de nuestro sistema de gestión de calidad"</p>
+                </div>
+                <div class="signature-block">
+                    <span class="signature-name">Lic. Doria Jacinto Gómez</span>
+                    <span class="signature-title">Gerente General</span>
+                </div>
+            </div>
+            <div class="iso-badge">
+                <h3 style="color: var(--pantone-288c); font-size: 1.8rem; margin-bottom: 1rem;">Nuestro Compromiso</h3>
+                <p style="margin-bottom: 1.5rem; color: var(--black-70);">En DIMLO estamos tan comprometidos con la calidad de los servicios que ofrecemos que actualmente nos encontramos en el proceso de certificación de la norma ISO-9001.</p>
+                <div style="font-size: 4rem; color: var(--pantone-288c);">✓</div>
+                <h4 style="margin-top: 1rem; color: var(--black-100);">Certificación ISO 9001:2015</h4>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <!-- Logo en el footer actualizado -->
+        <div class="footer-logo">
+            <img src="logo_dimlo.jpg" alt="DIMLO SOLUTIONS OF MEXICO">
+        </div>
+        <div class="footer-links">
+            <a href="#quienes-somos">¿Quiénes somos?</a>
+            <a href="#calidad">Política de calidad</a>
+            <a href="#compromiso">Compromiso</a>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2024 DIMLO, Inc. Privacy Terms</p>
+            <a href="#" style="color: var(--white); text-decoration: underline; display: block; margin-top: 1rem;">Subir al inicio</a>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
+        const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target);
+            });
+        }, revealOptions);
+
+        revealElements.forEach(el => revealOnScroll.observe(el));
+
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.style.boxShadow = '0 4px 20px rgba(0,0,0,0.1)';
+            } else {
+                header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            }
+        });
+    </script>
+</body>
+</html>
